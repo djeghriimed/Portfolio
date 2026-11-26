@@ -19,6 +19,10 @@ nav b{font-weight:700;letter-spacing:-.02em}
 nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;font-size:.9rem;overflow-x:auto}
 nav ul a{color:var(--muted)}
 nav ul a:hover{color:var(--text)}
+.theme-toggle{flex-shrink:0;display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--text);font:inherit;font-size:.85rem;font-weight:600;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.theme-toggle:hover{border-color:var(--accent);transform:translateY(-1px)}
+.theme-toggle:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+@media(max-width:650px){nav div{flex-wrap:wrap}nav ul{order:3;width:100%;justify-content:space-between;gap:12px}.theme-toggle{margin-left:auto}}
 main{max-width:1000px;margin:0 auto;padding:0 20px 56px}
 .hero{padding:88px 0 56px;position:relative}
 .hero::before{content:"";position:absolute;top:-40px;right:-40px;width:340px;height:340px;background:radial-gradient(circle,var(--accent) 0%,transparent 65%);opacity:.18;filter:blur(30px);z-index:-1}
@@ -71,7 +75,7 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:32px}
 </style>
 </head>
 <body>
-<nav><div><b>ID.</b><ul><li><a href="#projets">Projets</a></li><li><a href="#competences">Compétences</a></li><li><a href="#parcours">Parcours</a></li><li><a href="#contact">Contact</a></li></ul></div></nav>
+<nav><div><b>ID.</b><ul><li><a href="#projets">Projets</a></li><li><a href="#competences">Compétences</a></li><li><a href="#parcours">Parcours</a></li><li><a href="#contact">Contact</a></li></ul><button class="theme-toggle" id="themeToggle" type="button" aria-label="Activer le mode nuit" aria-pressed="false"><span id="themeIcon" aria-hidden="true">🌙</span><span id="themeLabel">Mode nuit</span></button></div></nav>
 <main>
 <header class="hero"><div class="txt">
 <span class="badge"><i></i>Disponible à partir du 31 mai 2027</span>
@@ -141,5 +145,36 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:32px}
 </section>
 <footer>© 2026 Imed DJEGHRI</footer>
 </main>
+<script>
+(() => {
+  const root = document.documentElement;
+  const button = document.getElementById("themeToggle");
+  const icon = document.getElementById("themeIcon");
+  const label = document.getElementById("themeLabel");
+
+  // Priorité au choix déjà enregistré, sinon au thème du système.
+  const savedTheme = localStorage.getItem("portfolio-theme");
+  const initialTheme = savedTheme || (
+    window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+  );
+
+  function applyTheme(theme) {
+    root.dataset.theme = theme;
+    const isDark = theme === "dark";
+    icon.textContent = isDark ? "☀️" : "🌙";
+    label.textContent = isDark ? "Mode normal" : "Mode nuit";
+    button.setAttribute("aria-label", isDark ? "Activer le mode normal" : "Activer le mode nuit");
+    button.setAttribute("aria-pressed", String(isDark));
+  }
+
+  applyTheme(initialTheme);
+
+  button.addEventListener("click", () => {
+    const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+    localStorage.setItem("portfolio-theme", nextTheme);
+    applyTheme(nextTheme);
+  });
+})();
+</script>
 </body>
 </html>
