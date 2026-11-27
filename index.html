@@ -72,10 +72,18 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:32px}
 .lang strong{display:block;font-size:1.35rem;letter-spacing:-.02em}
 .lang small{color:var(--muted);font-size:.85rem}
 .lvl{font-size:1.5rem;font-weight:800;color:#fff;background:linear-gradient(120deg,var(--accent),var(--accent2));border-radius:14px;padding:8px 18px}
+.card[data-p]{cursor:pointer}
+.card[data-p]::after{content:"Voir le détail →";display:block;margin-top:14px;font-size:.82rem;font-weight:600;color:var(--accent)}
+dialog{border:1px solid var(--line);border-radius:22px;background:var(--bg);color:var(--text);max-width:560px;width:calc(100% - 32px);padding:30px;box-shadow:var(--shadow)}
+dialog::backdrop{background:#000000a0;backdrop-filter:blur(4px)}
+dialog h3{margin:0 0 8px;font-size:1.5rem;letter-spacing:-.02em;padding-right:36px}
+dialog p{color:var(--muted);margin:12px 0 18px}
+dialog .x{position:absolute;top:14px;right:16px;border:0;background:transparent;color:var(--muted);font-size:1.8rem;line-height:1;cursor:pointer}
+dialog .btn{display:inline-block;margin-top:20px}
 </style>
 </head>
 <body>
-<nav><div><b>ID.</b><ul><li><a href="#projets">Projets</a></li><li><a href="#competences">Compétences</a></li><li><a href="#parcours">Parcours</a></li><li><a href="#contact">Contact</a></li></ul><button class="theme-toggle" id="themeToggle" type="button" aria-label="Passer au mode nuit" aria-pressed="false"><span id="themeIcon" aria-hidden="true">🌙</span><span id="themeLabel">Mode nuit</span></button></div></nav>
+<nav><div><b>ID.</b><ul><li><a href="#projets">Projets</a></li><li><a href="#competences">Compétences</a></li><li><a href="#parcours">Parcours</a></li><li><a href="#contact">Contact</a></li></ul><button class="theme-toggle" id="themeToggle" type="button" aria-label="Passer au mode nuit" aria-pressed="false"><span id="themeIcon" aria-hidden="true" style="display:inline-flex"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></span><span id="themeLabel">Mode nuit</span></button></div></nav>
 <main>
 <header class="hero"><div class="txt">
 <span class="badge"><i></i>Disponible à partir du 31 mai 2027</span>
@@ -88,12 +96,12 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:32px}
 <section id="projets">
 <h2>Projets</h2>
 <div class="grid">
-<article class="card"><h3>Gestion des Jeux Olympiques</h3><span class="meta">1 mois · en binôme · 2025</span><p>Modélisation UML et base de données avec triggers.</p><div class="tags"><span>SQL</span><span>UML</span><span>Triggers</span></div></article>
-<article class="card"><h3>Cabinet infirmier</h3><span class="meta">1 mois · en équipe · 2026</span><p>Chaîne complète autour de XML, avec validation, transformation et serveur HTTP.</p><div class="tags"><span>XML</span><span>XSD</span><span>XSLT</span><span>HTML</span><span>CSS</span><span>Serveur HTTP</span></div></article>
-<article class="card"><h3>UniScape</h3><span class="meta">2 mois · en équipe · 2026</span><p>Escape game PC dans une université de nuit : gardes, caméras et clés à récupérer à chaque étage.</p><div class="tags"><span>C#</span><span>MonoGame</span><span>XML</span><span>XSD</span></div></article>
-<article class="card"><h3>Site de vente de voitures</h3><span class="meta">1 mois · en équipe · 2023</span><p>Plateforme d’annonces avec espace utilisateur (annonces, favoris) et espace administrateur (validation, messages).</p><div class="tags"><span>Angular</span><span>API PHP</span><span>JavaScript</span><span>CSS</span><span>SQL</span></div></article>
-<article class="card"><h3>Projet FTP</h3><span class="meta">Projet universitaire · en binôme · 2026</span><p>Projet autour du protocole FTP, développé en langage C.</p><div class="tags"><span>C</span><span>FTP</span><span>Réseau</span></div></article>
-<article class="card"><h3>Jeu Tablut</h3><span class="meta">2 mois · en équipe · 2026</span><p>Jeu avec interface graphique en architecture MVC, avec une fonction d’aide au jeu par IA.</p><div class="tags"><span>Java</span><span>MVC</span><span>IHM</span></div></article>
+<article class="card" data-p="jo" tabindex="0" role="button"><h3>Gestion des Jeux Olympiques</h3><span class="meta">1 mois · en binôme · 2025</span><p>Nous avons modélisé les Jeux Olympiques de A à Z : épreuves, athlètes, résultats, le tout garanti cohérent par des triggers.</p><div class="tags"><span>SQL</span><span>UML</span><span>Triggers</span></div></article>
+<article class="card" data-p="cabinet" tabindex="0" role="button"><h3>Cabinet infirmier</h3><span class="meta">1 mois · en équipe · 2026</span><p>Nous avons donné vie à un cabinet infirmier en XML : données validées, transformées et servies jusqu’au navigateur.</p><div class="tags"><span>XML</span><span>XSD</span><span>XSLT</span><span>HTML</span><span>CSS</span><span>Serveur HTTP</span></div></article>
+<article class="card" data-p="uniscape" tabindex="0" role="button"><h3>UniScape</h3><span class="meta">2 mois · en équipe · 2026</span><p>Esquiver les gardes, déjouer les caméras et trouver les clés : nous avons créé un escape game nocturne dans une université.</p><div class="tags"><span>C#</span><span>MonoGame</span><span>XML</span><span>XSD</span></div></article>
+<article class="card" data-p="voitures" tabindex="0" role="button"><h3>Site de vente de voitures</h3><span class="meta">1 mois · en équipe · 2023</span><p>Nous avons construit une vraie place de marché auto, avec annonces, favoris et un espace admin pour tout modérer.</p><div class="tags"><span>Angular</span><span>API PHP</span><span>JavaScript</span><span>CSS</span><span>SQL</span></div></article>
+<article class="card" data-p="ftp" tabindex="0" role="button"><h3>Projet FTP</h3><span class="meta">Projet universitaire · en binôme · 2026</span><p>Un serveur de fichiers en C qui sert plusieurs clients en même temps : le défi de la concurrence relevé en binôme.</p><div class="tags"><span>C</span><span>FTP</span><span>Réseau</span><span>Client-serveur</span></div></article>
+<article class="card" data-p="tablut" tabindex="0" role="button"><h3>Jeu Tablut</h3><span class="meta">2 mois · en équipe · 2026</span><p>Nous avons recréé le Tablut en Java, avec une IA qui conseille le meilleur coup à jouer.</p><div class="tags"><span>Java</span><span>MVC</span><span>IHM</span></div></article>
 </div>
 </section>
 
@@ -141,10 +149,42 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:32px}
 <p>Je cherche un stage à partir du 31 mai 2027. Mobile dans toute la France.</p>
 <div class="clist">
 <a href="mailto:djeghri.imed@gmail.com?subject=Prise%20de%20contact%20depuis%20votre%20portfolio"><small>E-mail</small><span>djeghri.imed@gmail.com</span></a>
+<a href="https://github.com/djeghriimed" target="_blank" rel="noopener"><small>GitHub</small><span>github.com/djeghriimed</span></a>
 </div>
 </section>
 <footer>© 2026 Imed DJEGHRI</footer>
 </main>
+<dialog id="dlg"><button class="x" aria-label="Fermer">×</button><h3 id="dt"></h3><span class="meta" id="dm"></span><p id="dd"></p><div class="tags" id="dg"></div><div id="dl"></div></dialog>
+<script>
+var P={
+jo:{d:"Les Jeux Olympiques, c’est des milliers de données à garder cohérentes. Avec mon binôme, nous avons imaginé la base de données de A à Z : modélisation UML pour poser les bonnes bases, création en SQL des tables (disciplines, épreuves, athlètes, résultats) puis mise en place de triggers qui vérifient automatiquement les règles du jeu pour empêcher les incohérences.",git:"https://github.com/djeghriimed/Gestion-des-Jeux-Olympiques"},
+cabinet:{d:"Notre mission : construire la chaîne complète d’un cabinet infirmier autour de XML. Nous avons décrit les données en XML, imposé leurs règles avec un schéma XSD, transformé le tout avec XSLT pour obtenir des pages HTML mises en forme en CSS, puis fait servir l’ensemble par un serveur HTTP. En équipe, nous avons appris à faire dialoguer chaque brique proprement.",git:""},
+uniscape:{d:"Une nuit dans une université, des gardes qui patrouillent, des caméras qui scrutent chaque couloir et des clés cachées à chaque étage : voilà UniScape, un escape game PC pour les 8 ans et plus. En équipe, nous avons développé le jeu en C# avec MonoGame et décrit les niveaux et les paramètres du jeu en XML validé par XSD, avec un code orienté objet organisé à partir d’un diagramme de classes.",git:""},
+voitures:{d:"Imagine un Leboncoin pour les voitures : c’est ce que nous avons construit en équipe. Les utilisateurs publient des annonces et gèrent leurs favoris, tandis qu’un espace administrateur valide les annonces et modère utilisateurs et messages. Nous avons conçu la base relationnelle et l’architecture avant de coder, avec un front en Angular et une API en PHP.",git:""},
+ftp:{d:"Comment servir plusieurs clients en même temps sans que tout s’effondre ? À deux, nous avons développé en C un serveur de fichiers inspiré du protocole FTP à partir d’un code fourni : communication client-serveur, transfert de fichiers, processus concurrents et répartition de charge entre plusieurs processus. Un rapport détaille nos choix techniques et nos tests.",git:"https://github.com/djeghriimed/Projet-FTP"},
+tablut:{d:"Le Tablut est un jeu de stratégie viking où l’on défend le roi contre ses assaillants. En équipe, nous l’avons recréé en Java avec une interface graphique et une architecture MVC pour séparer proprement les règles, l’affichage et les actions du joueur. Nous y avons ajouté une aide au jeu par IA qui conseille le meilleur coup.",git:"https://github.com/djeghriimed/TablutGame"}
+};
+(function(){
+var dlg=document.getElementById("dlg");
+function open(c){
+var p=P[c.getAttribute("data-p")];if(!p)return;
+document.getElementById("dt").textContent=c.querySelector("h3").textContent;
+document.getElementById("dm").textContent=c.querySelector(".meta").textContent;
+document.getElementById("dd").textContent=p.d;
+var g=document.getElementById("dg");g.textContent="";
+c.querySelectorAll(".tags span").forEach(function(s){var n=document.createElement("span");n.textContent=s.textContent;g.appendChild(n);});
+var l=document.getElementById("dl");l.textContent="";
+if(p.git){var a=document.createElement("a");a.className="btn p";a.href=p.git;a.target="_blank";a.rel="noopener";a.textContent="Voir le dépôt Git";l.appendChild(a);}
+if(dlg.showModal){dlg.showModal();}else{dlg.setAttribute("open","");}
+}
+document.querySelectorAll(".card[data-p]").forEach(function(c){
+c.addEventListener("click",function(){open(c);});
+c.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();open(c);}});
+});
+dlg.querySelector(".x").addEventListener("click",function(){dlg.close();});
+dlg.addEventListener("click",function(e){if(e.target===dlg){dlg.close();}});
+})();
+</script>
 <script>
 (() => {
   const root = document.documentElement;
@@ -157,22 +197,14 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:32px}
   function applyTheme(theme) {
     root.dataset.theme = theme;
     const isDark = theme === "dark";
-
-    // Le bouton indique le mode vers lequel on peut basculer.
-    icon.textContent = isDark ? "🌙" : "☀️";
+    icon.innerHTML = isDark ? '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>' : '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
     label.textContent = isDark ? "Mode nuit" : "Mode normal";
-    button.setAttribute(
-      "aria-label",
-      isDark ? "Mode nuit actif. Cliquer pour passer au mode normal" : "Mode normal actif. Cliquer pour passer au mode nuit"
-    );
+    button.setAttribute("aria-label", isDark ? "Mode nuit actif. Cliquer pour passer au mode normal" : "Mode normal actif. Cliquer pour passer au mode nuit");
     button.setAttribute("aria-pressed", String(isDark));
   }
 
-  // Au chargement, le site suit directement le thème du navigateur/système.
   applyTheme(colorScheme.matches ? "dark" : "light");
 
-  // Un changement de thème du navigateur est également suivi automatiquement,
-  // tant que l'utilisateur n'a pas choisi manuellement un mode.
   colorScheme.addEventListener("change", (event) => {
     if (!userChoice) {
       applyTheme(event.matches ? "dark" : "light");
@@ -181,8 +213,7 @@ footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:32px}
 
   button.addEventListener("click", () => {
     userChoice = true;
-    const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
-    applyTheme(nextTheme);
+    applyTheme(root.dataset.theme === "dark" ? "light" : "dark");
   });
 })();
 </script>
